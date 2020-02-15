@@ -1,8 +1,8 @@
 import json
 import os
-import datetime
 
-from mode_json import json_main, load_json
+from import_handler import file_selector, mode_json
+from file_creator import make_json
 
 # requirements #
 # 1. handle inputs for various expenditures... ex: csv, text
@@ -12,36 +12,22 @@ from mode_json import json_main, load_json
 
 class Pynance:
 
-    def __init__(self):
-        self.date = datetime.datetime.now().strftime("%D %H:%M")
-        self.account_balance = 0
-        self.deposit = 0
-        self.withdraw = 0
-
     def main(self):
 
         while True:
-            print("Mode selection:\n 0 = Load JSON,\n 1 = Load existing CSV file,\n 2 = input data to write to an initial JSON or CSV file")
+            print(
+                "Mode selection:\n 0 = load existing file,\n 1 = Create new file,\n 2 = Exit out of Pynance")
 
-            try:
-                self.mode = int(input("Mode: "))
-                if self.mode == 0:
-                    json_main()
-                elif self.mode == 1:
-                    print("Loadiing existing CSV file")
-
-                elif self.mode == 2:
-                    self.account_balance = input(
-                        "Please enter your initial account balance>> $")
-                    print(f"Balance: ${self.account_balance}")
-
-                else:
-                    print("Issue loading data or invalid mode")
-                return False
-
-            except Exception:
-                print(Exception)
+            self.mode = int(input("Mode: "))
+            if self.mode == 0:
+                file_selector()
+            elif self.mode == 1:
+                make_json()
+            elif self.mode == 2:
                 exit()
+            else:
+                print("Issue loading data or invalid mode")
+            return False
 
 
 Pynance().main()
