@@ -27,8 +27,8 @@ Key: "0.1.0" = Alpha, build 1, patch 0
 
 4. Current issues or bugs -
   Issues- 
-    a. There is no validation that the file supplied is the one expected. 
+    1. There is no validation that the file supplied is the one expected. 
      1. I will be adding this in the next update. 
-    b. It doesn't always handle incorrect inputs nicely. 
+    2. It doesn't always handle incorrect inputs nicely. 
      1. I will be adding 'try'...' except' for these cases
 
