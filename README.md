@@ -3,12 +3,10 @@ A program allowing you to import or create a JSON, CSV, or text file for your mo
 
 Key: "0.1.0" = Alpha, build 1, patch 0
 
-0.1.0 (02/13/2020):
-+Uploaded intial files: 
+0.1.0 (02/13/2020): Uploaded intial files: 
   'main.py', 'mode_json.py'
   
-0.2.0 (02/15/2020): 
-+Completely overhauled project files -
+0.2.0 (02/15/2020): Completely overhauled project files -
   Updates: 
 1.  'main.py' has been reworked - 
   The file had some light editing done to remove extraneous code and imports that are no longer required. 
@@ -31,4 +29,12 @@ Key: "0.1.0" = Alpha, build 1, patch 0
      1. I will be adding this(^) in the next build update. 
     2. It doesn't always handle incorrect inputs nicely. 
      1. I will be adding 'try'...' except' for these(^) cases
+     
+0.2.1 (02/16/2020): Fixed issues with handling invalid inputs - Updates:
+1. 'main.py' has been reworked to handle invalid inputs.
+
+2. 'file_creator.py' received changes to grammar for "fields."
+
+3. Current issues or bugs - 
+    1. There is no validation that the file supplied is the one expected.
 
