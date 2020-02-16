@@ -28,7 +28,7 @@ Key: "0.1.0" = Alpha, build 1, patch 0
 4. Current issues or bugs -
   Issues- 
     1. There is no validation that the file supplied is the one expected. 
-     1. I will be adding this(^) in the next update. 
+     1. I will be adding this(^) in the next build update. 
     2. It doesn't always handle incorrect inputs nicely. 
      1. I will be adding 'try'...' except' for these(^) cases
 
