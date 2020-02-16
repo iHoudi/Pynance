@@ -23,21 +23,21 @@ def mode_json():
     # allow for ediitng of the loaded json
     # export the json
 
-    # locates json
-
-    print("What is the file path for your exisiting JSON? >>")
-    path = str(input("Path: "))
-
-    # strips the path provided down to the file name and type
-    path_tail = ntpath.basename(path)
-
-    # attempts to load json file and print contents
     try:
+        # locates json
+
+        print("What is the file path for your exisiting JSON? >>")
+        path = str(input("Path: "))
+
+        # strips the path provided down to the file name and type
+        path_tail = ntpath.basename(path)
+
+        # attempts to load json file and print contents
 
         with open(path_tail) as _json:
             data = json.load(_json)
 
-            #print(json.dumps(data, indent=2))
+            # print(json.dumps(data, indent=4))
 
         for account in data['statement']:
             print("+-------------------------------------+")
@@ -47,7 +47,7 @@ def mode_json():
             print("Previous Balance>>", f"${account['old_bal']}")
             print("Deposit>>", f"${account['deposit']}")
             print("Withdraw>>", f"${account['withdraw']}")
-            print("Update Balance>>", f"${account['updated_bal']}")
+            print("Update Balance>>", f"${account['updated_bal']}\n")
 
     except Exception:
-        print("JSON error")
+        print("Invalid Input or JSON Error")
