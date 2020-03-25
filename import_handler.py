@@ -1,53 +1,42 @@
 import json
-import ntpath
+import util
+import os
 
 
-def file_selector():
-    print("0 = Load JSON,\n1 = Load CSV,\n2 = Load text file")
-    _format = int(input("Mode: "))
-    if _format == 0:
-        mode_json()
-    elif _format == 1:
-        print()
-    elif _format == 2:
-        print()
-    else:
-        print()
+def load_json():
 
-
-def mode_json():
-
-    # asks for path of json
-    # load a json
-    # populate local variables with json
-    # allow for ediitng of the loaded json
-    # export the json
+    _run = True
 
     try:
-        # locates json
-
-        print("What is the file path for your exisiting JSON? >>")
-        path = str(input("Path: "))
-
-        # strips the path provided down to the file name and type
-        path_tail = ntpath.basename(path)
+        print(util._filesInDir())
+        #print(os.getcwd())
+        print(util.fcolor(5,"Which file would you like to load?"))
+        path = str(input(util.fcolor(5,">> ")))
 
         # attempts to load json file and print contents
-
-        with open(path_tail) as _json:
+        print(util.fcolor(5, "Attempting To Read File"))
+        print("file path >> " + util.lfile_path(path))
+        with open(util.lfile_path(path)) as _json:
+            print(util.fcolor(2, "Successful Read"))
             data = json.load(_json)
 
-            # print(json.dumps(data, indent=4))
-
-        for account in data['statement']:
-            print("+-------------------------------------+")
-            print(account['name_f'], account['name_l'])
-            print("Account_id:", account['account_id'])
-            print("Date>>", account['date'])
-            print("Previous Balance>>", f"${account['old_bal']}")
-            print("Deposit>>", f"${account['deposit']}")
-            print("Withdraw>>", f"${account['withdraw']}")
-            print("Update Balance>>", f"${account['updated_bal']}\n")
+        for statement in data['statements']:
+            info_access = statement['info']
+            try:
+                if _run != False:
+                    print(util.header)
+                for i in range(0, 8):
+                    value = info_access[util.keys[i]]
+                    print(util.fields[i], value)
+                print(f"{util.footer}\n")
+                util.wait(3)
+                _run = False
+            except Exception:
+                #print(util.fcolor(1, "ERROR"))
+                break
+            continue
 
     except Exception:
-        print("Invalid Input or JSON Error")
+        print(util.fcolor(1, "Invalid Path OR JSON Read Error"))
+        util.wait(1.5)
+        # util.clear()
