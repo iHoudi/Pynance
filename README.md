@@ -1,5 +1,6 @@
 # Pynance
 A program allowing you to import or create a JSON, CSV, or text file for your monthly expenditures. 
+*** Has been depricated *** This project is being refactored and will use Tkinter.
 
 Key: "0.1.0" = Alpha, build 1, patch 0
 
